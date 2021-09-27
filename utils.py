@@ -115,4 +115,4 @@ def statistics(column_name, headers, data):
     print("The largest number for", headers[column_index], "is", high_num, "on", data[high_num_index][0],".")
 
     #return column_index, entries,  list_average, std_dev, median_number, low_num, high_num, high_num_index, low_num_index
-    # ******************** Would it be better coding practice to split the statistics into different functions? *****************
+    # ******************** Would it be better coding practice to split the statistics into different functions? too many returns = not future proof?*****************
