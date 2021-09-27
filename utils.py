@@ -65,7 +65,7 @@ def statistics(column_name, headers, data):
     # get the sum of the list elements 
     list_sum = 0
     num_list = []
-    column_data = get_column(headers, column_name, data) #******************
+    column_data = get_column(headers, column_name, data) 
     date_list = get_column("Date", column_name, data)
     for value in column_data:
         num_list.append(float(value))
@@ -100,16 +100,19 @@ def statistics(column_name, headers, data):
 
     # get the date for the smallest and largest value
     high_num = 0
-    high_num_date = ''
+    high_num_index = 0
     for i in range(len(num_list)):
         if num_list[i] > high_num:
             high_num = num_list[i]
-            high_num_date = date_list[i]
-    low_num = high_num  # ***************************is this not a reference?  high_num doesn't change when I change low_num below *****************************
-    low_num_date = ''
+            high_num_index = i
+    low_num = high_num  # ***************************is this not a reference?  high_num doesn't change when I change low_num below. Is that only for lists?*************************
+    low_num_index = 0
     for i in range(len(num_list)):
         if num_list[i] < low_num:
             low_num = num_list[i]
-            low_num_date = date_list[i]
-    print("The smallest number for", headers[column_index], "is", low_num, "on", low_num_date,".")
-    print("The largest number for", headers[column_index], "is", high_num, "on", high_num_date,".") 
+            low_num_index = i
+    print("The smallest number for", headers[column_index], "is", low_num, "on", data[low_num_index][0],".")
+    print("The largest number for", headers[column_index], "is", high_num, "on", data[high_num_index][0],".")
+
+    #return column_index, entries,  list_average, std_dev, median_number, low_num, high_num, high_num_index, low_num_index
+    # ******************** Would it be better coding practice to split the statistics into different functions? *****************
