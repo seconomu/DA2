@@ -105,3 +105,27 @@ def statistics_low_num(data):
             low_num = data[i]
             low_num_index = i
     return low_num, low_num_index
+
+# Define and call a function, def slice_column(date_col, col, start_date, end_date), that returns a sub-list 
+# of col from start_date (inclusive) to end_date exclusive. date_col is a list of dates and is the same length 
+# as col. Use this function to answer these research questions:
+
+#     Did my exercise patterns change once I finished the marathon?         no significant change
+#     Did my exercise patterns change once the fall semester started?       no significant change
+
+def slice_column(date_col, col, start_date, end_date):
+    new_list = []
+    start_index_value = 0
+    end_index_value = 0
+    for i in range(len(date_col)):
+        if date_col[i] == start_date:
+            start_index_value = i
+        elif date_col[i] == end_date:
+            end_index_value = i
+    for i in range(start_index_value, end_index_value):
+        new_list.append(col[i])
+    return new_list
+
+def create_nested_list(list1, list2):
+    nested_list = [list(l) for l in zip(list1, list2)]
+    return nested_list
